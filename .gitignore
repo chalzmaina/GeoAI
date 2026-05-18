@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# UV
+uv.lock
+
+# Environment
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data & outputs (large files)
+data/
+output/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
