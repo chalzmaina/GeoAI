@@ -6,7 +6,8 @@ build-backend = "hatchling.build"
 name = "kenya_lulc"
 version = "0.1.0"
 description = "A project to fine-tune GFM for land cover and crop mapping in Kenya"
-authors = [{ name = "Charles Mwangi " }, { name = "Riccardo D\'Ercole " }]
+authors = [{ name = "Charles Mwangi " }, 
+           { name = "Riccardo D'Ercole " }]
 readme = "README.md"
 requires-python = ">=3.12,<3.14"
 dependencies = [
