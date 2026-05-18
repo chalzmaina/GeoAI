@@ -21,6 +21,28 @@ dependencies = [
     "shapely",
     "geopandas",
     "pyproj",
+    # Deep learning (CUDA wheels via [tool.uv.sources])
+    "torch>=2.3",
+    "torchvision",
+    # ML
+    "scikit-learn",
+    "einops",
+    # Visualization
+    "matplotlib",
+    # Remote sensing / OlmoEarth
+    "olmoearth_pretrain",
+    "rslearn",
+    "universal-pathlib",
+    # HuggingFace
+    "huggingface_hub",
+    "datasets>=4.0.0",
+    # Filesystem
+    "fsspec>=2025.3.0",
+    "gcsfs>=2025.3.0",
+    # Config parsing (required by rslearn / jsonargparse-based CLIs)
+    "jsonargparse[signatures]>=4.27.7",
+    # Training framework
+    "lightning",
     # Utilities
     "tqdm",
     "python-dotenv",
@@ -30,8 +52,24 @@ dependencies = [
 dev = [
     "pytest",
     "ipykernel",
-    "matplotlib",
+]
+# Only needed when building the dataset from scratch (Section 2b of the tutorial)
+scratch = [
+    "planetary-computer",
+    "pystac-client",
 ]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/kenya_lulc"]
+
+# ---------------------------------------------------------------------------
+# uv: use the PyTorch CUDA 12.4 index for GPU-enabled torch / torchvision
+# ---------------------------------------------------------------------------
+[[tool.uv.index]]
+name = "pytorch-cuda"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cuda" }
+torchvision = { index = "pytorch-cuda" }
